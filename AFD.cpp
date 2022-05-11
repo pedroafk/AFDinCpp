@@ -36,9 +36,9 @@ string qtPalavras, string quantTransit){
     }*/
 
     string marcaEstado;
-    int x = 2;
+    int x = 2; //QuantPalavras;
 
-    cout << palavras[x].length() << endl;
+    cout << palavras[x] << endl;
 
     for(int i=0; i<palavras[x].length(); i++){ // i controla qual letra da palavra;
         if(palavras[x][i] == alfabeto[0]){ // é A usa-se transt[linhaDaTransição][0]
