@@ -4,14 +4,25 @@
 #include <string>
 using namespace std;
 
+void constroiAutomato(string estado, string alfabeto, string i, string F, string *palavras, string *transit,
+string qtPalavras, string quantTransit){
+    // cout << "Estado " << estado << endl; //1234e
+    // cout << "Alfabeto " << alfabeto << endl; //ab
+    // cout << "Est.Inicial " << i << endl; //1
+    // cout << "Est.Final " << F << endl; //4
+    // cout << "QuantPalavras " << qtPalavras << endl; //3
+    // cout << "Palavra 1 " << palavras[0] << endl; //abaaa
+    // cout << "Palavra 2 " << palavras[1] << endl; //abbababa
+    // cout << "Palavra 3 " << palavras[2] << endl; //abaabaaba
+    // cout << "QuantTransit " << quantTransit << endl; //5
+    // cout << "Transicao " << transit[4] << endl; //ee
+}
+
 int main(){
     fstream file;
-    string estado, alfabeto, i, F, qtPalavras;
+    string estado, alfabeto, i, F, qtPalavras, quantTransit;
     string *palavras = NULL;
-    string auxToTransit;
     string *transit = NULL;
-
-    string quantTransit;
 
 
     file.open("automato1.txt",ios::in);
@@ -38,17 +49,9 @@ int main(){
         }
         
     }
-    cout << "Estado " << estado << endl;
-    cout << "Alfabeto " << alfabeto << endl;
-    cout << "Est.Inicial " << i << endl;
-    cout << "Est.Final " << F << endl;
-    cout << "QuantPalavras " << qtPalavras << endl;
-    cout << "Palavra 1 " << palavras[0] << endl;
-    cout << "Palavra 2 " << palavras[1] << endl;
-    cout << "Palavra 3 " << palavras[2] << endl;
 
-    cout << "QuantTransit " << quantTransit << endl;
-    cout << "Transicao " << transit[4] << endl;
+    constroiAutomato(estado,alfabeto,i,F,palavras,transit, qtPalavras, quantTransit);
+    
 
     file.close();
     delete [] palavras;
