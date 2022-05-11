@@ -36,7 +36,7 @@ string qtPalavras, string quantTransit){
     }*/
 
     string marcaEstado;
-    int x = 1;
+    int x = 2;
 
     cout << palavras[x].length() << endl;
 
@@ -53,6 +53,9 @@ string qtPalavras, string quantTransit){
                     }
                     cout << "N Valido!" << endl;
                     break;
+                } else {
+                    cout << "N Valido!" << endl;
+                    return;
                 }
             }
         } else { // é B usa-se transt[linhaDaTransição][1]
@@ -67,6 +70,9 @@ string qtPalavras, string quantTransit){
                     }
                     cout << "N Valido!" << endl;
                     break;
+                } else {
+                    cout << "N Valido!" << endl;
+                    return;
                 }
             }
         }
