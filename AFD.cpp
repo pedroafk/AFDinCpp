@@ -18,6 +18,7 @@ string qtPalavras, string quantTransit){
     // cout << "Transicao " << transit[4] << endl; //ee
     
     /*******Lógica estática********/
+    /*
     if(palavras[0][0] == alfabeto[0]){ // é A usa-se transt[linhaDaTransição][0]
         if(transit[0][0] != 'e'){
             palavras[0][1];
@@ -32,11 +33,44 @@ string qtPalavras, string quantTransit){
             cout << "Erro!" << endl;
             return;
         }
+    }*/
+
+    string marcaEstado;
+    int x = 1;
+
+    cout << palavras[x].length() << endl;
+
+    for(int i=0; i<palavras[x].length(); i++){ // i controla qual letra da palavra;
+        if(palavras[x][i] == alfabeto[0]){ // é A usa-se transt[linhaDaTransição][0]
+            if(transit[i][0] != 'e') {
+                marcaEstado = transit[i][0];
+            } else {
+                if(transit[i][0] == 'e' && transit[i][1] == 'e') //Looping do erro
+                {
+                    if(marcaEstado == F){
+                        cout << "Valido!" << endl;
+                        break;
+                    }
+                    cout << "N Valido!" << endl;
+                    break;
+                }
+            }
+        } else { // é B usa-se transt[linhaDaTransição][1]
+            if(transit[i][1] != 'e'){
+                marcaEstado = transit[i][1];
+            } else {
+                if(transit[i][0] == 'e' && transit[i][1] == 'e') //Looping do erro
+                {
+                    if(marcaEstado == F){
+                        cout << "Valido!" << endl;
+                        break;
+                    }
+                    cout << "N Valido!" << endl;
+                    break;
+                }
+            }
+        }
     }
-
-    
-    
-
 }
 
 int main(){
