@@ -1,13 +1,14 @@
-1 2 3 4 e
-a b
-2 e
-e 3
-4 e
-4 4
-e e
+1234e
+ab
 1
 4
 3
 abaaa
 abbababa
 abaabaaba
+5
+2e
+e3
+4e
+44
+ee
