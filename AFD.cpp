@@ -16,6 +16,27 @@ string qtPalavras, string quantTransit){
     // cout << "Palavra 3 " << palavras[2] << endl; //abaabaaba
     // cout << "QuantTransit " << quantTransit << endl; //5
     // cout << "Transicao " << transit[4] << endl; //ee
+    
+    /*******Lógica estática********/
+    if(palavras[0][0] == alfabeto[0]){ // é A usa-se transt[linhaDaTransição][0]
+        if(transit[0][0] != 'e'){
+            palavras[0][1];
+        } else {
+            cout << "Erro!" << endl;
+            return;
+        }
+    } else { // é B usa-se transt[linhaDaTransição][1]
+        if(transit[0][1] != 'e'){
+            palavras[0][1];
+        } else {
+            cout << "Erro!" << endl;
+            return;
+        }
+    }
+
+    
+    
+
 }
 
 int main(){
