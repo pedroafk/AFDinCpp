@@ -112,7 +112,7 @@ int main(){
     string *transit = NULL;
 
 
-    file.open("automato4.txt",ios::in);
+    file.open("automato5.txt",ios::in);
 
     if(file.is_open()){
         getline(file,estado); //Pega o estado na linha 1;
