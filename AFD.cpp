@@ -4,18 +4,18 @@
 #include <string>
 using namespace std;
 
-void constroiAutomato(string estado, string alfabeto, string i, string F, string *palavras, string *transit,
+void constroiAutomato(string estado, string alfabeto, string iEst, string F, string *palavras, string *transit,
 string qtPalavras, string quantTransit){
     // cout << "Estado " << estado << endl; //1234e
     // cout << "Alfabeto " << alfabeto << endl; //ab
-    // cout << "Est.Inicial " << i << endl; //1
+    // cout << "Est.Inicial " << iEst << endl; //1
     // cout << "Est.Final " << F << endl; //4
     // cout << "QuantPalavras " << qtPalavras << endl; //3
     // cout << "Palavra 1 " << palavras[0] << endl; //abaaa
     // cout << "Palavra 2 " << palavras[1] << endl; //abbababa
     // cout << "Palavra 3 " << palavras[2] << endl; //abaabaaba
     // cout << "QuantTransit " << quantTransit << endl; //5
-    // cout << "Transicao " << transit[4] << endl; //ee
+    // cout << "Transicao " << transit[1] << endl; //ee
     
     /*******Lógica estática********/
     /*
@@ -38,17 +38,27 @@ string qtPalavras, string quantTransit){
     string marcaEstado;
     int x = 2; //QuantPalavras;
 
+
+
+    int estExec = 0;
+    bool flag = true;
     cout << palavras[x] << endl;
 
-    for(int i=0; i<palavras[x].length(); i++){ // i controla qual letra da palavra;
+
+    for(int i=0; i<palavras[x].length(); i++){ // i controla qual letra da palavra; 
         if(palavras[x][i] == alfabeto[0]){ // é A usa-se transt[linhaDaTransição][0]
-            if(transit[i][0] != 'e') {
-                marcaEstado = transit[i][0];
+            if(transit[estExec][0] != 'e') {
+                marcaEstado = transit[estExec][0];
+                estExec++;
+                if(iEst == marcaEstado){
+                    estExec=0;
+                }
             } else {
                 if(transit[i][0] == 'e' && transit[i][1] == 'e') //Looping do erro
                 {
                     if(marcaEstado == F){
                         cout << "Valido!" << endl;
+                        flag = false;
                         break;
                     }
                     cout << "N Valido!" << endl;
@@ -59,13 +69,18 @@ string qtPalavras, string quantTransit){
                 }
             }
         } else { // é B usa-se transt[linhaDaTransição][1]
-            if(transit[i][1] != 'e'){
-                marcaEstado = transit[i][1];
+            if(transit[estExec][1] != 'e'){
+                marcaEstado = transit[estExec][1];
+                estExec++;
+                if(iEst == marcaEstado){
+                    estExec=0;
+                }
             } else {
                 if(transit[i][0] == 'e' && transit[i][1] == 'e') //Looping do erro
                 {
                     if(marcaEstado == F){
                         cout << "Valido!" << endl;
+                        flag = false;
                         break;
                     }
                     cout << "N Valido!" << endl;
@@ -76,6 +91,17 @@ string qtPalavras, string quantTransit){
                 }
             }
         }
+        
+        if(estExec == stoi(quantTransit)){
+            estExec = estExec - 1;
+        }
+    }
+
+    
+    if(F == marcaEstado){
+        cout << "Valido!" << endl;
+    } else {
+        cout << "Invalido!" << endl;
     }
 }
 
@@ -86,7 +112,7 @@ int main(){
     string *transit = NULL;
 
 
-    file.open("automato1.txt",ios::in);
+    file.open("automato4.txt",ios::in);
 
     if(file.is_open()){
         getline(file,estado); //Pega o estado na linha 1;

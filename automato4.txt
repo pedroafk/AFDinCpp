@@ -1,0 +1,11 @@
+12
+ab
+1
+2
+3
+aaaaabbbbb
+aaababababbaa
+bbbaabbaba
+2
+21
+21
